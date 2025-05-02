@@ -227,6 +227,7 @@ class HomeView extends GetView<HomeController> {
                                 imageUrl: dataImage?[index].images?[0] ?? '',
                                 imageBuilder:
                                     (context, imageProvider) => Container(
+                                      margin: EdgeInsets.only(right: 15),
                                       decoration: BoxDecoration(
                                         image: DecorationImage(
                                           image: imageProvider,
@@ -242,10 +243,10 @@ class HomeView extends GetView<HomeController> {
                                         ],
                                       ),
                                     ),
-                                placeholder:
-                                    (context, url) => Center(
-                                      child: CircularProgressIndicator(),
-                                    ),
+                                // placeholder:
+                                //     (context, url) => Center(
+                                //       child: CircularProgressIndicator(),
+                                //     ),
                                 errorWidget:
                                     (context, url, error) => Icon(Icons.error),
                               ),

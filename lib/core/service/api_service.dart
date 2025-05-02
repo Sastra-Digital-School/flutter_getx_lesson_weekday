@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_project_getx/config/function/function/function.dart';
-import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
@@ -19,13 +18,8 @@ class ApiService {
     String method = 'GET',
     dynamic body,
     required T Function(Map<String, dynamic>) fromJson,
-    bool? isShowProcessDialog,
   }) async {
     try {
-      if (isShowProcessDialog == true) {
-        processAlert(message: 'សូមមេត្តារង់ចាំ', onTap: () {});
-      }
-
       final uri = Uri.parse(baseUrl).replace(
         path: Uri.parse(baseUrl).path + endpoint,
         queryParameters: queryParams,
@@ -66,10 +60,6 @@ class ApiService {
         default:
           response = await _httpClient.get(uri, headers: requestHeaders);
         // .timeout(const Duration(seconds: 10));
-      }
-
-      if (isShowProcessDialog == true) {
-        Get.back();
       }
 
       return _processResponse(response, fromJson);

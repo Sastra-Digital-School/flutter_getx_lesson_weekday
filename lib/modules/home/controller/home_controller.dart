@@ -1,16 +1,13 @@
-import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter_project_getx/core/service/api_service.dart';
+import 'package:flutter_project_getx/core/string/string_con.dart';
 import 'package:flutter_project_getx/modules/home/models/home_model.dart';
 import 'package:flutter_project_getx/modules/home/models/product_model.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 
 import '../../../core/data/data.dart';
 
 class HomeController extends GetxController {
-  ApiService get apiService => ApiService(baseUrl: 'https://dummyjson.com');
+  ApiService get apiService => ApiService(baseUrl: URL);
 
   var _couter = 0.obs;
 
@@ -42,32 +39,30 @@ class HomeController extends GetxController {
   ProductModels productModels = ProductModels();
 
   Future<void> loadingApiData() async {
-    try {
-      lodaing.value = true;
+    lodaing.value = true;
+    // Calling api with api service
+    productModels = await apiService.callApi<ProductModels>(
+      endpoint: PRODUCT,
+      body: {},
+      fromJson: (data) => ProductModels.fromJson(data),
+    );
 
-      var url = Uri.https('dummyjson.com', '/product/');
-
-      var response = await http.get(url);
-
-      var data = jsonDecode(response.body);
-
-      productModels = ProductModels.fromJson(data);
-
-      lodaing.value = true;
-    } catch (e) {
-      debugPrint(e.toString());
-    }
+    // Simple Calling api
+    // var url = Uri.https('dummyjson.com', '/product/');
+    // var response = await http.get(url);
+    // var data = jsonDecode(response.body);
+    // productModels = ProductModels.fromJson(data);
+    lodaing.value = true;
   }
-
-  //  await apiService.callApi<ProductModels>(
-  //     endpoint: '/product/',
-  //     queryParams: {},
-  //     method: 'POST',
-  //     headers: {},
-  //     body: {},
-  //     fromJson: (data) => ProductModels.fromJson(data),
-  //     isShowProcessDialog: false,
-  //   );
+  // await apiService.callApi<ProductModels>(
+  //       endpoint: '/product/',
+  //       // queryParams: {},
+  //       method: 'POST',
+  //       headers: {},
+  //       body: {},
+  //       fromJson: (data) => ProductModels.fromJson(data),
+  //       isShowProcessDialog: false,
+  //     );
 
   @override
   void onInit() async {
