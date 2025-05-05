@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_getx/config/theme/theme_style.dart';
 import 'package:flutter_project_getx/modules/home/binding/home_binding.dart';
-import 'package:flutter_project_getx/modules/home/view/home_view.dart';
+import 'package:flutter_project_getx/modules/home/controller/home_controller.dart';
 import 'package:get/get.dart';
 
 class MyApp extends StatelessWidget {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       initialBinding: HomeBinding(),
-      home: const HomeView(),
+      home: const HomeResponsive(),
     );
   }
 }
