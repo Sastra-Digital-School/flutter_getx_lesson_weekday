@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project_getx/config/routes/app_routes.dart';
 import 'package:flutter_project_getx/config/theme/theme_style.dart';
 import 'package:flutter_project_getx/modules/home/controller/home_controller.dart';
 import 'package:flutter_project_getx/modules/item/item_detail.dart';
@@ -50,7 +51,14 @@ class HomeView extends GetView<HomeController> {
     title: Text('Home'),
     centerTitle: true,
     leading: Icon(Icons.menu_rounded),
-    actions: [IconButton(onPressed: () {}, icon: Icon(Icons.notifications))],
+    actions: [
+      IconButton(
+        onPressed: () {
+          RouteView.notification.go();
+        },
+        icon: Icon(Icons.notifications),
+      ),
+    ],
     expandedHeight: 130,
     flexibleSpace: FlexibleSpaceBar(
       expandedTitleScale: 1,

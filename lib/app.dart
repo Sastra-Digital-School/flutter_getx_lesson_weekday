@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project_getx/config/routes/app_pages.dart';
+import 'package:flutter_project_getx/config/routes/app_routes.dart';
 import 'package:flutter_project_getx/config/theme/theme_style.dart';
 import 'package:flutter_project_getx/modules/home/binding/home_binding.dart';
-import 'package:flutter_project_getx/modules/home/controller/home_controller.dart';
 import 'package:get/get.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,8 +14,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
+      initialRoute: RouteView.home.name,
       initialBinding: HomeBinding(),
-      home: const HomeResponsive(),
+      getPages: AppRouting.route,
+      // home: const HomeResponsive(),
     );
   }
 }
