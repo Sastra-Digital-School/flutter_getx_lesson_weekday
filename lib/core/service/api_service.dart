@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:async';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_project_getx/config/function/function/function.dart';
+import 'package:flutter_project_getx/config/function/function.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
