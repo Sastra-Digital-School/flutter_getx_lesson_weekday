@@ -17,7 +17,6 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteView.home.name,
       initialBinding: HomeBinding(),
       getPages: AppRouting.route,
-      // home: const HomeResponsive(),
     );
   }
 }
