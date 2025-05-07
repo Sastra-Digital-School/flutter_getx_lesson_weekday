@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_project_getx/config/routes/app_routes.dart';
 import 'package:flutter_project_getx/modules/home/controller/home_controller.dart';
 import 'package:flutter_project_getx/modules/notification/notification_binding.dart';
@@ -18,6 +19,12 @@ class AppRouting {
             return GetPage(
               name: "/${e.name}",
               page: () => NotificationScreen(),
+              binding: NotificationBinding(),
+            );
+          case RouteView.location:
+            return GetPage(
+              name: "/${e.name}",
+              page: () => Container(),
               binding: NotificationBinding(),
             );
         }

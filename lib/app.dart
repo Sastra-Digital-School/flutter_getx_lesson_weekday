@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      initialRoute: RouteView.home.name,
       initialBinding: HomeBinding(),
+      initialRoute: RouteView.home.name,
       getPages: AppRouting.route,
     );
   }
