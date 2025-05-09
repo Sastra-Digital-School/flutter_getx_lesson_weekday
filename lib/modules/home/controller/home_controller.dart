@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project_getx/config/responsive/main_responsive.dart';
 import 'package:flutter_project_getx/core/service/api_service.dart';
+import 'package:flutter_project_getx/core/service/auth_service.dart';
+import 'package:flutter_project_getx/core/service/local_service.dart';
 import 'package:flutter_project_getx/core/string/string_con.dart';
 import 'package:flutter_project_getx/modules/home/models/home_model.dart';
 import 'package:flutter_project_getx/modules/home/models/product_model.dart';
@@ -73,19 +75,39 @@ class HomeController extends GetxController {
     // var data = jsonDecode(response.body);
     // productModels = ProductModels.fromJson(data);
   }
-  // await apiService.callApi<ProductModels>(
-  //       endpoint: '/product/',
-  //       // queryParams: {},
-  //       method: 'POST',
-  //       headers: {},
-  //       body: {},
-  //       fromJson: (data) => ProductModels.fromJson(data),
-  //       isShowProcessDialog: false,
-  //     );
+
+  AuthService get authService => AuthService();
+
+  var textEditingController = TextEditingController();
+  var loading = false;
+
+  final _textValue = ''.obs;
+
+  void setTextValue(String value) async {
+    await LocalStorageService.instance.setString('name', value);
+    _textValue.value = LocalStorageService.instance.getString('name') ?? '';
+  }
+
+  get getTextValue => _textValue.value;
+
+  final _token = ''.obs;
+
+  void setToken(value) {
+    _token.value = value;
+  }
+
+  get getToken => _token.value;
 
   @override
   void onInit() async {
     super.onInit();
+
+    var token = await authService.getAccessToken();
+
+    setToken(token);
+
+    _textValue.value = LocalStorageService.instance.getString('name') ?? '';
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       autoRefresh();
     });

@@ -27,22 +27,7 @@ class HomeView extends GetView<HomeController> {
       headerSliverBuilder: (context, innerBoxIsScrolled) {
         return [_buildAppBar];
       },
-      body: TabBarView(
-        children: [_buildListTab1, _buildList, Center(child: Text('Tab'))],
-      ),
-      // Obx(
-      //   () =>
-      //       controller.lodaing.value
-      //           ? Center(child: CircularProgressIndicator())
-      //           :
-      //           TabBarView(
-      //             children: [
-      //               _buildListTab1,
-      //               _buildList,
-      //               Center(child: Text('Tab')),
-      //             ],
-      //           ),
-      // ),
+      body: TabBarView(children: [_buildListTab1, _buildList, _buildListTab2]),
     );
   }
 
@@ -510,6 +495,43 @@ class HomeView extends GetView<HomeController> {
                       ),
                     );
                   },
+                ),
+      ),
+    );
+  }
+
+  get _buildListTab2 {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Obx(
+        () =>
+            controller.loading
+                ? SizedBox()
+                : Column(
+                  spacing: 20,
+                  children: [
+                    TextField(controller: controller.textEditingController),
+                    ElevatedButton(
+                      onPressed: () {
+                        controller.setTextValue(
+                          controller.textEditingController.text,
+                        );
+                        controller.textEditingController.clear();
+                      },
+                      child: Text('Save'),
+                    ),
+                    Text('Local Storage: ${controller.getTextValue}'),
+                    Text('Token: ${controller.getToken}'),
+                    ElevatedButton(
+                      onPressed: () async {
+                        await controller.authService.removeToken();
+                        var token =
+                            await controller.authService.getAccessToken();
+                        controller.setToken(token);
+                      },
+                      child: Text('Delect'),
+                    ),
+                  ],
                 ),
       ),
     );
