@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project_getx/config/theme/theme_style.dart';
 import 'package:flutter_project_getx/modules/home/controller/home_controller.dart';
-import 'package:flutter_project_getx/modules/item/item_detail.dart';
+import 'package:flutter_project_getx/modules/product/product_detail.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 

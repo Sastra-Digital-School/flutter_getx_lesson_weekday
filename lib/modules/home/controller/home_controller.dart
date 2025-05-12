@@ -102,11 +102,9 @@ class HomeController extends GetxController {
   void onInit() async {
     super.onInit();
 
-    var token = await authService.getAccessToken();
-
-    setToken(token);
-
-    _textValue.value = LocalStorageService.instance.getString('name') ?? '';
+    // var token = await authService.getAccessToken();
+    // setToken(token);
+    // _textValue.value = LocalStorageService.instance.getString('name') ?? '';
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       autoRefresh();
