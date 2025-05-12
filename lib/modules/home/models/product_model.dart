@@ -8,7 +8,7 @@ ProductModels productModelsFromJson(String str) {
 }
 
 class ProductModels {
-  List<Product>? products;
+  List<Products>? products;
   int? total;
   int? skip;
   int? limit;
@@ -16,8 +16,8 @@ class ProductModels {
   ProductModels({this.products, this.total, this.skip, this.limit});
 
   factory ProductModels.fromJson(Map<String, dynamic> json) => ProductModels(
-    products: List<Product>.from(
-      json["products"].map((x) => Product.fromJson(x)),
+    products: List<Products>.from(
+      json["products"].map((x) => Products.fromJson(x)),
     ),
     total: json["total"],
     skip: json["skip"],
@@ -25,7 +25,7 @@ class ProductModels {
   );
 }
 
-class Product {
+class Products {
   int? id;
   String? title;
   String? description;
@@ -49,7 +49,7 @@ class Product {
   List<String>? images;
   String? thumbnail;
 
-  Product({
+  Products({
     this.id,
     this.title,
     this.description,
@@ -74,7 +74,7 @@ class Product {
     this.thumbnail,
   });
 
-  factory Product.fromJson(Map<String, dynamic> json) => Product(
+  factory Products.fromJson(Map<String, dynamic> json) => Products(
     id: json["id"],
     title: json["title"],
     description: json["description"],
