@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_project_getx/config/routes/app_routes.dart';
-import 'package:flutter_project_getx/modules/home/controller/home_controller.dart';
-import 'package:flutter_project_getx/modules/notification/notification_binding.dart';
-import 'package:flutter_project_getx/modules/notification/notification_screen.dart';
+import 'package:flutter_project_getx/modules/shop/home/controller/home_controller.dart';
+import 'package:flutter_project_getx/modules/shop/notification/notification_binding.dart';
+import 'package:flutter_project_getx/modules/shop/notification/notification_screen.dart';
 import 'package:get/get.dart';
 
 class AppRouting {

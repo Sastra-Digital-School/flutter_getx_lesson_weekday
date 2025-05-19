@@ -24,17 +24,30 @@ dependencies:
   sqflite: ^2.3.0
   path: ^1.8.3
   path_provider: ^2.1.1
+  flutter_3d_controller: ^2.2.0
+  flutter_neumorphic:
+    git:
+      url: https://github.com/den0206/Flutter-Neumorphic.git
+      ref: feature/remoce_accentcolor
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^5.0.0
+  flutter_lints: ^5.0.0    
 
 flutter:
   uses-material-design: true
 
   assets:
     - assets/
+    - assets/3d/car/
+    - assets/3d/
+    - assets/car_item_icon/
+
+
+
+
+
 
 

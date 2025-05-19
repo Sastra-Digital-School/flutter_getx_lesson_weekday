@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:flutter_project_getx/modules/product/product_model_localdata.dart';
+import 'package:flutter_project_getx/modules/shop/product/product_model_localdata.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
