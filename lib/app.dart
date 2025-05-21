@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_project_getx/config/routes/app_pages.dart';
-// import 'package:flutter_project_getx/config/routes/app_routes.dart';
-// import 'package:flutter_project_getx/modules/shop/home/binding/home_binding.dart';
+import 'package:flutter_project_getx/config/routes/app_pages.dart';
+import 'package:flutter_project_getx/config/routes/app_routes.dart';
+import 'package:flutter_project_getx/modules/shop/home/binding/home_binding.dart';
 import 'package:flutter_project_getx/config/theme/theme_style.dart';
-import 'package:flutter_project_getx/modules/car_demo/demo/demo_screen.dart';
 import 'package:get/get.dart';
 
 class MyApp extends StatelessWidget {
@@ -15,10 +14,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      // initialBinding: HomeBinding(),
-      // initialRoute: RouteView.home.name,
-      // getPages: AppRouting.route,
-      home: DemoScreen(),
+      initialBinding: HomeBinding(),
+      initialRoute: RouteView.homedemo.name,
+      getPages: AppRouting.route,
+      // home: DemoScreen(),
     );
   }
 }

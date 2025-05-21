@@ -29,6 +29,7 @@ dependencies:
     git:
       url: https://github.com/den0206/Flutter-Neumorphic.git
       ref: feature/remoce_accentcolor
+  panorama: ^0.4.1
 
 dev_dependencies:
   flutter_test:
