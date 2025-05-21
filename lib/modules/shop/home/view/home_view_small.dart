@@ -40,7 +40,7 @@ class HomeView extends GetView<HomeController> {
       IconButton(
         onPressed: () {
           RouteView.notification.go(parameters: {'id': '6', 'name': 'Sithy'});
-
+          controller.homeModel.data?.latest?.first.description;
           Get.offAllNamed('/notification');
         },
         icon: Icon(Icons.notifications),

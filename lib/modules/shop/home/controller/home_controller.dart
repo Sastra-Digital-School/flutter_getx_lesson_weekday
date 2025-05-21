@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_project_getx/config/responsive/main_responsive.dart';
 import 'package:flutter_project_getx/core/service/api_service.dart';
 import 'package:flutter_project_getx/core/service/auth_service.dart';
@@ -14,7 +15,9 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import '../../../../core/data/data.dart';
 
 class HomeController extends GetxController {
-  ApiService get apiService => ApiService(baseUrl: URL);
+  final urlGoogleMaps = dotenv.env['URL_GOOGLE_MAPS'];
+
+  ApiService get apiService => ApiService(baseUrl: urlGoogleMaps!);
 
   final refreshController = RefreshController(initialRefresh: false).obs;
 
@@ -102,13 +105,13 @@ class HomeController extends GetxController {
   void onInit() async {
     super.onInit();
 
-    // var token = await authService.getAccessToken();
-    // setToken(token);
-    // _textValue.value = LocalStorageService.instance.getString('name') ?? '';
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       autoRefresh();
     });
+
+    // var token = await authService.getAccessToken();
+    // setToken(token);
+    // _textValue.value = LocalStorageService.instance.getString('name') ?? '';
   }
 
   @override

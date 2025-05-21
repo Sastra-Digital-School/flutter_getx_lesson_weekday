@@ -30,6 +30,7 @@ dependencies:
       url: https://github.com/den0206/Flutter-Neumorphic.git
       ref: feature/remoce_accentcolor
   panorama: ^0.4.1
+  flutter_dotenv: ^5.2.1
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +46,7 @@ flutter:
     - assets/3d/car/
     - assets/3d/
     - assets/car_item_icon/
+    - .env
 
 
 

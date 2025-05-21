@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       initialBinding: HomeBinding(),
-      initialRoute: RouteView.homedemo.name,
+      initialRoute: RouteView.home.name,
       getPages: AppRouting.route,
       // home: DemoScreen(),
     );
