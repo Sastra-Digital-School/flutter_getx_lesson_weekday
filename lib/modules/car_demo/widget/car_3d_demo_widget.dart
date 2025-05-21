@@ -59,7 +59,7 @@ class _Car3DDemoWidgetState extends State<Car3DDemoWidget> {
       alignment: Alignment.center,
       children: [
         Flutter3DViewer(
-          src: 'assets/3d/robot_playground.glb',
+          src: 'assets/3d/car/tesla_2018_model_3.glb',
           controller: _flutter3DController,
           progressBarColor: Colors.transparent,
           onLoad: (sceneName) async {
